@@ -1,0 +1,16 @@
+Cache:
+* v[pos] -> pos = itFoundFile - v.begin()
+* Los iterator funcionan mientras el vector no cambie.
+	 ^ ahora al cambiarlo por un list, los iteradores ya no se pierden,
+	 y puedo agregar elementos sin realocar.
+* Cuidado los iteradores! pueden o no estar donde se quiere... mejor resetearlos con respecto a itFoundFile antes.
+	 ^ el uso del CHECK() verifica que no se escapen del rango deseado
+* Como hago para que haya 1 solo Cache por Loader?
+* Que metodos puedo hacer const al final?
+
+Loader:
+* Cuidado con file_path! recordar hacer verificaciones de existencia de directorio Y de archivo (al moverse hacia adelante, y borrar la imagen anterior, por ej.)
+* Una funcion para actualizar el dir? cuando cambie de imagen?
+* Hacer que cargardir devuelva un codigo?
++ CargarDir -> Hacer la carga unicamente del archivo seleccionado y devolver una funcion error_code() para indicar que no se pudo cargar el resto
++ CargarDir -> Como hacer para evitar la construccion del objeto si falla la carga del directorio?
